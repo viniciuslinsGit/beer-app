@@ -11,9 +11,9 @@ const Beer = ({ beer }) => {
           <div key={beer.id}>
             <p>
               Nome:<b> {beer.name} </b>
-              Tag:<b> {beer.tagline} </b>
-              URL Imagem:<b> {beer.image_url} </b>
-              Descricao:<b> {beer.description} </b>
+              <a href={beer.image_url} target="_blank">
+                <img src={beer.image_url} width="250" title={beer.description} />
+              </a>
             </p>
           </div>
         ))

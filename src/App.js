@@ -5,22 +5,12 @@ class App extends Component {
 
   state = {
     beer: [
-      { id: 1,  name: "Maria Joana", tagline: "23", image_url: "23", description: "23" },
-      { id: 2, name: "Mary Jane", tagline: "23", image_url: "23", description: "23" },
-      { id: 3, name: "Peter Park", tagline: "23", image_url: "23", description: "23" }
+      { id: 1,  name: "Heineken", tagline: "1", image_url: "https://images.rappi.com.br/products/2089953537-1531614559.png", description: "Cerveja heineken" },
+      { id: 2, name: "Therezópolis", tagline: "2", image_url: "https://static.cestasmichelli.com.br/images/product/27736gg.jpg", description: "Cerveja therezópolis" },
+      { id: 3, name: "Blue Moon", tagline: "23", image_url: "https://www.worldofbeers.com.br/1419-large_default/cerveja-americana-blue-moon-355ml.jpg", description: "Cerveja blue moon" }
     ],
     anotherSatate : 'Eu sou uma outro estado',
     isShowBeer : true
-  }
-  
-  handleChangeName = event => {
-    this.setState({
-      beer: [
-        { id: 4, name: "Samaurai Jack", tagline: "23", image_url: "23", description: "23" },
-        { id: 5, name: "Pinto do Acordeon", tagline: "23", image_url: "23", description: "23" },
-        { id: 6, name: "Professor Xavier", tagline: "23", image_url: "23", description: "23" }
-      ]
-    })
   }
 
   handleShowBeer = () => {
@@ -32,16 +22,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>Olá eu sou um componente </h1>
+        <h1>Detalhamento das cervejas: </h1>
         <button onClick={this.handleShowBeer}>
-          Mostra esconde estudante
+          Mostra esconde cervejas
         </button>
         { this.state.isShowBeer && <Beer beer={this.state.beer} /> }
-        
-          <button type="submit" onClick={this.handleChangeName} >
-            Atualizar
-          </button>
-        
       </>
     )
   }
