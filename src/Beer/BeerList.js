@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Paper, Button, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+import { Paper, Button, Table, TableBody, TableCell, TableHead, TableRow, Avatar } from '@material-ui/core';
 import AppHeader from '../component/AppHeader/AppHeader'
 import MainTemplate  from '../template/MainTemplate'
 import beerApi from '../api/beer'
@@ -32,25 +32,23 @@ class BeerList extends Component {
           <Table >
             <TableHead>
                 <TableRow>
-                    <TableCell>Nome</TableCell>
-                    <TableCell align="right">Tagline</TableCell>
-                    <TableCell align="right">URL da Imagem</TableCell>
+                    <TableCell align="left">Nome</TableCell>
+                    <TableCell align="center">Tagline</TableCell>
+                    <TableCell align="left">Imagem</TableCell>
                     <TableCell align="right">Opções</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {this.state.listBeerGrid.map(beer => (
                     <TableRow key={beer.id}>
-                    <TableCell component="th" scope="row">
-                      {beer.name}
-                    </TableCell>
-                    <TableCell align="right">{beer.tagline}</TableCell>
-                    <TableCell align="right">{beer.image_url}</TableCell>
-                    <TableCell align="right">
-                      <Button variant="contained" color="primary" >
-                        Detalhar
-                      </Button>
-                    </TableCell>
+                      <TableCell align="left"> {beer.name} </TableCell>
+                      <TableCell align="center"> {beer.tagline} </TableCell>
+                      <TableCell align="left">
+                        <Avatar alt={beer.tagline} src={beer.image_url}  />
+                      </TableCell>
+                      <TableCell align="right">
+                        <Button variant="contained" color="primary" > Detalhar </Button>
+                      </TableCell>
                     </TableRow>
                 ))}
             </TableBody>

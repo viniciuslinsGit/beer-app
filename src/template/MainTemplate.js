@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
+import { Grid } from '@material-ui/core'
+import { withStyles } from '@material-ui/styles'
 import style from './MainTemplate.style'
 
 const MainTemplate = ({ classes, children, ...rest }) => {
