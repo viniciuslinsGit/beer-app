@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Paper, Button, Table, TableBody, TableCell, TableHead, TableRow, Avatar } from '@material-ui/core';
-import AppHeader from '../component/AppHeader/AppHeader'
-import MainTemplate  from '../template/MainTemplate'
-import beerApi from '../api/beer'
+import AppHeader from '../../component/AppHeader/AppHeader'
+import MainTemplate  from '../../template/MainTemplate'
+import beerApi from '../../api/beer'
 
 class BeerList extends Component {
 
@@ -23,19 +23,25 @@ class BeerList extends Component {
       .catch(error => console.error(error))
   }
 
+  handleClick(personId, history)
+  {
+    history.push(`beers/${personId}`)
+  }
+
   render() {
+
+    const { history } = this.props
 
     return(
       <MainTemplate>
-        <AppHeader title="Página de listagem" />
+        <AppHeader title="Beers" />
         <Paper>
           <Table >
             <TableHead>
                 <TableRow>
-                    <TableCell align="left">Nome</TableCell>
+                    <TableCell align="left">Name</TableCell>
                     <TableCell align="center">Tagline</TableCell>
-                    <TableCell align="left">Imagem</TableCell>
-                    <TableCell align="right">Opções</TableCell>
+                    <TableCell align="right">Options</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -43,11 +49,9 @@ class BeerList extends Component {
                     <TableRow key={beer.id}>
                       <TableCell align="left"> {beer.name} </TableCell>
                       <TableCell align="center"> {beer.tagline} </TableCell>
-                      <TableCell align="left">
-                        <Avatar alt={beer.tagline} src={beer.image_url}  />
-                      </TableCell>
                       <TableCell align="right">
-                        <Button variant="contained" color="primary" > Detalhar </Button>
+                        <Button variant="contained" color="primary" 
+                          onClick={() => this.handleClick(beer.id, history)}> Details </Button>
                       </TableCell>
                     </TableRow>
                 ))}
